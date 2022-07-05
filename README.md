@@ -1,10 +1,17 @@
-# What I have done to build a program using libwebrtc
-## install libabseil-dev
-To fix the following compile error, apt intall libsel-dev.
+# Pre-Rquisition
 ```bash
-In file included from test.c:1:
-/usr/include/webrtc/api/peer_connection_interface.h:78:10: fatal error: absl/base/attributes.h: そのようなファイルやディレクトリはありません
-   78 | #include "absl/base/attributes.h"
-      |          ^~~~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
+$ sudo apt install clang-10
+$ sudo apt install -y libc++-10-dev
+$ cd /usr/lib/x86_64-linux-gnu
+$ sudo ln -s libc++abi.so.1 libc++abi.so
+```
+# Build
+```bash
+$ make
+```
+
+# Execute
+```bash
+$ ./test; echo $?
+1 # This value comes from the enum defined in libwebrtc.
 ```
